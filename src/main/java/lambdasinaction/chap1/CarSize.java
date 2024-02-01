@@ -6,5 +6,5 @@ public enum CarSize {
     COMPACT,
     MEDIUM,
     LARGE,
-    LIKE_REALY_LARGE
+    LIKE_REALLY_LARGE
 }

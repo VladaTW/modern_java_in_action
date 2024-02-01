@@ -10,28 +10,29 @@ import static lambdasinaction.chap1.CarSize.*;
 public class FilteringCars {
 
     public static void main(String[] args) {
-        List<Car> cars = Arrays.asList(
+        final List<Car> cars;
+        cars = Arrays.asList(
             new Car("Opel", "Corsa", "Blue", 1200, COMPACT),
             new Car("Toyota", "RAV4", "Black", 2000, LARGE),
             new Car("Toyota", "Yaris", "Red", 1000, COMPACT),
             new Car("Nissan", "Micra", "Yellow", 800, SUBCOMPACT),
             new Car("Mazda", "626", "Green", 1800, MEDIUM),
-            new Car("Bentley", "Bollix", "Gold", 2800, LIKE_REALY_LARGE),
+            new Car("Bentley", "Bollix", "Gold", 2800, LIKE_REALLY_LARGE),
             new Car("Ford", "Mondeo", "White", 1600, MEDIUM),
             new Car("Fiat", "Tipo", "Silver", 1400, MEDIUM)
         );
 
-        //        List<Car> midSizedCars = filterMediumCars(cars);
-        //        System.out.println("midSizedCars - the initial filter");
-        //        System.out.println(midSizedCars);
-        //
-        //        List<Car> smallCars = filterSmallCars(cars);
-        //        System.out.println("smallCars - the initial filter");
-        //        System.out.println(smallCars);
+        List<Car> midSizedCars = filterMediumCars(cars);
+        System.out.println("midSizedCars - the initial filter");
+        System.out.println(midSizedCars);
 
-        //        List<Car> compactCars = filterCars(cars, (Car c) -> COMPACT.equals(c.getSize()));
-        //        System.out.println("compactCars - the lambda filter");
-        //        System.out.println(compactCars);
+        List<Car> smallCars = filterSmallCars(cars);
+        System.out.println("smallCars - the initial filter");
+        System.out.println(smallCars);
+
+        List<Car> compactCars = filterCars(cars, (Car c) -> COMPACT.equals(c.getSize()));
+        System.out.println("compactCars - the lambda filter");
+        System.out.println(compactCars);
 
         List<Car> largeCars = filterCars(cars, (Car c) -> LARGE.equals(c.getSize()));
         System.out.println("largeCars - the lambda filter");
@@ -43,6 +44,7 @@ public class FilteringCars {
 
         //         (Apple a) -> "green".equals(a.getColor()))
     }
+
 
     private static List<Car> filterCars(List<Car> cars, Predicate<Car> predicate) {
         List<Car> result = new ArrayList<>();
@@ -75,7 +77,7 @@ public class FilteringCars {
     }
 
     private static boolean isBigCar(Car car) {
-        return (LARGE.equals(car.getSize()) || LIKE_REALY_LARGE.equals(car.getSize()));
+        return (LARGE.equals(car.getSize()) || LIKE_REALLY_LARGE.equals(car.getSize()));
     }
 }
 

@@ -1,8 +1,11 @@
 package lambdasinaction.chap2;
 
 public enum Colour {
-    GREEN("green"),
-    RED("red");
+    GREEN("Green"),
+    BLUE("Blue"),
+    BLACK("Black"),
+    RED("Red");
+
 
     public final String label;
 
